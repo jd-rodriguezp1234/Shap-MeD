@@ -35,5 +35,21 @@ Contains the csv, scripts and notebooks necessary to generate the training datas
 ### 2. Model Training
 Contains the scripts and notebooks necessary to train the text-to-mesh model, as well as deploy the model to generate meshes not seen in training. All of this is found in the [project](project) folder.
 
+## Available dataset and models
+The [Shap-MeD huggingface repository](https://huggingface.co/jd-rodriguezp1234/Shap-MeD) contains the following two files:
+
+### shap-med-dataset.tar.gz
+
+This file contains the latent files required to train the Shap-e model in the [project](project) folder. Thus, if you want to train the model but do not want to recreate these latent files following the steps in the [dataset](dataset) folder, which may take several days, decompress this **tar.gz** file and copy the **.pt** files to the [dataset/dataset_obj](dataset/dataset_obj/) folder, and then follow the [project folder README steps](project/README.md).
+
+### shap-med-models.tar.gz
+
+This file contains the trained models required to generate meshes from text, as described in [project](project) folder README, in sections "Example generation" and "Deployment". If you want to generate meshes with the methods mentioned, but do not want to train the model, follow these steps:
+
+1. Execute the [project folder README](project/README.md) steps up to "Possible errors".
+2. Create the folder `project/shap-e/model_ckpts` folder if it does not exist.
+3. Decompress this **tar.gz** file and copy the **.pt** files to `project/shap-e/model_ckpts`.
+4. Now you can generate meshes by either following the steps in the sections "Example generation" or "Deployment" in [project folder README](project/README.md).
+
 ## General Requirements
 The project was made on a machine compatible with CUDA 12.2 and pytorch >= 2.2.0. In terms of hardware, a GPU with at least 6 GB of VRAM is required.
